@@ -35,7 +35,7 @@ void some_function(int a, int b, int c) {
 6. Cast the gateway address as the prototype you've defined earlier.
 7. Detour (modify) the target function's first 5 bytes with `jmp` to your C++ function address. Relative `jmp` offset formula is: `src-dst-5`.
 ```asm
-1. E9 xxxxxx: jmp your_function
+1. E9 xxxxxxxx: jmp your_function
 4. 83 EC 10:  sub esp, 10
 ```
 # Summary
