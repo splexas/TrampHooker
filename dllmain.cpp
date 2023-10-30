@@ -1,8 +1,6 @@
 #include <Windows.h>
 #include <iostream>
 #include "memory.hpp"
-#include <winhttp.h>
-
 
 typedef BOOL(__stdcall* prototype_wglSwapBuffers)(HDC hdc);
 prototype_wglSwapBuffers trampoline_wglSwapBuffers = nullptr;
