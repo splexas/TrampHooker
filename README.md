@@ -12,6 +12,7 @@ Let's say, the target function contains this assembly code:
 1. Create your own C++ detour function, make a `typedef` prototype and return it on the end of your function as you need to call the original function (gateway; trampoline).
 ```cpp
 typedef void(*target_function)(int a, int b, int c);
+target_function trampoline_function = nullptr;
 void some_function(int a, int b, int c) {
     return trampoline_function(a, b, c);
 }
