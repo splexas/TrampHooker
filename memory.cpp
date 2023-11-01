@@ -15,7 +15,7 @@ bool Memory::detour_function(char* original_function, char* detour_function, con
 		return false;
 
 	int32_t relative_offset = reinterpret_cast<int32_t>(detour_function) - reinterpret_cast<int32_t>(original_function) - 5;
-	*(original_function) = 0xE9;
+	*original_function = 0xE9;
 	*reinterpret_cast<int32_t*>(original_function + 1) = static_cast<int32_t>(relative_offset);
 
 	for (int i = 0; i < bytes_length - 5; i++) {
@@ -117,7 +117,7 @@ bool Memory::unhook_function(const HookedFunction& hooked_function) {
 
 bool Memory::unhook_functions() {
 	for (HookedFunction& hooked_function : Memory::hooked_functions) {
-		if (Memory::unhook_function(hooked_function))
+		if (!Memory::unhook_function(hooked_function))
 			return false;
 	}
 
