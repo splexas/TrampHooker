@@ -1,5 +1,7 @@
 # TrampHooker
 A mechanism that trampoline hooks functions in x86/x64 systems.
+# DISCLAIMER
+## This code is written pretty poorly, current code hardcodes and assumes there will be the same assembly instructions everytime in each program and that is not very flexible. This repository covers just the basics on how trampoline hooking should work.
 # How does trampoline hooking work?
 Let's say, the target function contains this assembly code:
 ```asm
